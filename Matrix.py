@@ -20,7 +20,7 @@ class Matrix:
         if len(self._matr) != len(other._matr) or len(self._matr[0]) != len(other._matr[0]):
             logger.error(
                 f'Не возможно выполнить сложение матриц, размерности матриц несовместимы:  [{len(self._matr)}][{len(self._matr[0])}] !=  [{len(other._matr)}][{len(other._matr[0])}] ')
-            return Matrix([])  # или другой способ обработки ошибки
+            return Matrix([])
         else:
             new_matr = Matrix([[self._matr[i][j] + other._matr[i][j] for j in range(len(self._matr[0]))] for i in
                                range(len(self._matr))])
@@ -31,7 +31,7 @@ class Matrix:
         if len(self._matr[0]) != len(other._matr):
             logger.error(
                 f'Не возможно выполнить умножение матриц, размерности матриц несовместимы: [{len(self._matr)}][{len(self._matr[0])}] !=  [{len(other._matr)}][{len(other._matr[0])}]')
-            return Matrix([])  # или другой способ обработки ошибки
+            return Matrix([])
         else:
             new_matr = [[sum(i * j for i, j in zip(i_row, j_col)) for j_col in zip(*other._matr)] for i_row in
                         self._matr]
